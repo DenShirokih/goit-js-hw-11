@@ -1,1 +1,35 @@
 @import './components/example';
+
+.search-wrapper{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.js-img-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    
+}
+li{
+    list-style: none;
+    margin-bottom: 15px;
+    font-family: 'Roboto Serif', serif;
+    font-size: 20px;
+    font-style: italic;
+
+}
+.list-img{
+
+    padding: 15px;
+    border-style:solid;
+    border-radius: 10px;
+}
+.wrapper{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.is-hidden{
+    display: none;
+}
