@@ -7,15 +7,22 @@ const searchImages = event => {
 
   const form = event.currentTarget;
   imgServise.query = form.elements.searchQuery.value;
-
   refs.cardContainer.innerHTML = '';
-  form.reset();
 
   imgServise.restPage();
   refs.loadMoreBtn.classList.add('is-hidden');
+  refs.spinner.classList.remove('is-hidden');
 
-  imgServise.fetchImg().then(createCardImg);
-  refs.loadMoreBtn.classList.remove('is-hidden');
+  imgServise
+    .fetchImg()
+    .then(data => {
+      createCardImg(data);
+      refs.loadMoreBtn.classList.remove('is-hidden');
+    })
+    .finally(() => {
+      refs.spinner.classList.add('is-hidden');
+    });
+  form.reset();
 };
 
 refs.searchForm.addEventListener('submit', searchImages);
