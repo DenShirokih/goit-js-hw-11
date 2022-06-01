@@ -37,7 +37,7 @@ const fetching = () => {
 refs.searchForm.addEventListener('submit', searchImages);
 refs.loadMoreBtn.addEventListener('click', fetching);
 
-const observer = new IntersectionObserver(callback, options);
-const options = {
-  rootMargin: '15px',
-};
+// const observer = new IntersectionObserver(callback, options);
+// const options = {
+//   rootMargin: '15px',
+// };
