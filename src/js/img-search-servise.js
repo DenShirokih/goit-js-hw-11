@@ -11,7 +11,7 @@ export default {
     const url = `?query=${this.query}&orientation=landscape&per_page=8&page=${this.page}`;
     return axios.get(url).then(res => {
       this.page += 1;
-      return res.data.results;
+      return res.data;
     });
   },
   restPage() {

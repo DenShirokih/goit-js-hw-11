@@ -6,7 +6,7 @@ axios.defaults.headers.common['Authorization'] =
 
 const fetchImg = (searchImg, page = 1) => {
   const url = `?query=${searchImg}&orientation=landscape&per_page=20&page=${page}`;
-  return axios.get(url).then(res => res.data.results);
+  return axios.get(url);
 };
 
 export default fetchImg;
