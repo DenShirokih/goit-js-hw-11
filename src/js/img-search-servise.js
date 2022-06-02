@@ -2,7 +2,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://api.unsplash.com/search/photos/';
 axios.defaults.headers.common['Authorization'] =
-  'Client-ID FrIM0DZAFAUoFGI6I46uhbEOgSLzGd-SyvdFm9HyfBQ';
+  'Client-ID cUdC6qyHeNPK4g1yIqgoUQJDrZItmpXky5cO5EcMN-A';
 
 export default {
   searchImg: '',

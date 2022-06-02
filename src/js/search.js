@@ -11,7 +11,7 @@ const searchImages = event => {
   refs.cardContainer.innerHTML = '';
 
   imgServise.restPage();
-  fetchImages().then(fetchSucsess);
+  fetchImages().then(fetchSucsess).then(io.observe(refs.loadMoreBtn));
 };
 
 const fetchImages = () => {
@@ -37,7 +37,12 @@ const fetching = () => {
 refs.searchForm.addEventListener('submit', searchImages);
 refs.loadMoreBtn.addEventListener('click', fetching);
 
-// const observer = new IntersectionObserver(callback, options);
-// const options = {
-//   rootMargin: '15px',
-// };
+const onEntry = (entries, observer) => {
+  entries.forEach(entry => {
+    fetching();
+  });
+};
+const options = {
+  rootMargin: '300px',
+};
+const io = new IntersectionObserver(onEntry, options);
