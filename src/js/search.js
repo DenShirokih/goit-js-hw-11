@@ -11,7 +11,7 @@ const searchImages = event => {
   refs.cardContainer.innerHTML = '';
 
   imgServise.restPage();
-  fetchImages().then(fetchSucsess).then(io.observe(refs.loadMoreBtn));
+  fetchImages().then(fetchSucsess);
 };
 
 const fetchImages = () => {
@@ -32,7 +32,9 @@ const fetchSucsess = value => {
   }
 };
 const fetching = () => {
-  fetchImages().then(data => createCardImg(data.results));
+  fetchImages()
+    .then(data => createCardImg(data.results))
+    .then(io.observe(refs.loadMoreBtn));
 };
 refs.searchForm.addEventListener('submit', searchImages);
 refs.loadMoreBtn.addEventListener('click', fetching);
