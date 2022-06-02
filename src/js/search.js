@@ -12,6 +12,7 @@ const searchImages = event => {
 
   imgServise.restPage();
   fetchImages().then(fetchSucsess);
+  io.observe(refs.observer);
 };
 
 const fetchImages = () => {
@@ -32,9 +33,7 @@ const fetchSucsess = value => {
   }
 };
 const fetching = () => {
-  fetchImages()
-    .then(data => createCardImg(data.results))
-    .then(io.observe(refs.loadMoreBtn));
+  fetchImages().then(data => createCardImg(data.results));
 };
 refs.searchForm.addEventListener('submit', searchImages);
 refs.loadMoreBtn.addEventListener('click', fetching);
@@ -45,6 +44,6 @@ const onEntry = (entries, observer) => {
   });
 };
 const options = {
-  rootMargin: '300px',
+  rootMargin: '100px',
 };
 const io = new IntersectionObserver(onEntry, options);

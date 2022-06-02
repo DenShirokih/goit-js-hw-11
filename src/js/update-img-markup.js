@@ -4,7 +4,7 @@ import refs from './refs';
 
 const createCardImg = value => {
   const markup = handlebars.compile(imgCard)(value);
-  refs.cardContainer.insertAdjacentHTML('beforeend', markup);
+  refs.cardContainer.insertAdjacentHTML('afterbegin', markup);
 };
 
 export default createCardImg;
