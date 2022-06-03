@@ -5,14 +5,21 @@ axios.defaults.headers.common['Authorization'] =
   'Client-ID cUdC6qyHeNPK4g1yIqgoUQJDrZItmpXky5cO5EcMN-A';
 
 export default {
+  isLoading: false,
   searchImg: '',
   page: 1,
   fetchImg() {
+    this.isLoading = true;
     const url = `?query=${this.query}&orientation=landscape&per_page=8&page=${this.page}`;
-    return axios.get(url).then(res => {
-      this.page += 1;
-      return res.data;
-    });
+    return axios
+      .get(url)
+      .then(res => {
+        this.page += 1;
+        return res.data;
+      })
+      .finally(() => {
+        this.isLoading = false;
+      });
   },
   restPage() {
     this.page = 1;

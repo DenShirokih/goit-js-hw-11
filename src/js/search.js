@@ -12,14 +12,14 @@ const searchImages = event => {
 
   imgServise.restPage();
   fetchImages().then(fetchSucsess);
-  io.observe(refs.observer);
+  io.observe(refs.observerDiv);
 };
 
 const fetchImages = () => {
-  refs.loadMoreBtn.classList.add('is-hidden');
+  // refs.loadMoreBtn.classList.add('is-hidden');
   refs.spinner.classList.remove('is-hidden');
   return imgServise.fetchImg().finally(data => {
-    refs.loadMoreBtn.classList.remove('is-hidden');
+    // refs.loadMoreBtn.classList.remove('is-hidden');
     refs.spinner.classList.add('is-hidden');
     return data;
   });
@@ -36,14 +36,16 @@ const fetching = () => {
   fetchImages().then(data => createCardImg(data.results));
 };
 refs.searchForm.addEventListener('submit', searchImages);
-refs.loadMoreBtn.addEventListener('click', fetching);
+// refs.loadMoreBtn.addEventListener('click', fetching);
 
-const onEntry = (entries, observer) => {
+const onEntry = entries => {
   entries.forEach(entry => {
-    fetching();
+    if (entry.isIntersecting && !imgServise.isLoading) {
+      fetching();
+    }
   });
 };
 const options = {
-  rootMargin: '100px',
+  rootMargin: '400px',
 };
 const io = new IntersectionObserver(onEntry, options);
