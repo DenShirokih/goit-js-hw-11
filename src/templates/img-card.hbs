@@ -1,9 +1,17 @@
 {{#each this}}
-<ul class='list-img'>
+<li class="list-img">
+    <a href="{{urls.regular}}" data-pswp-width="1200" data-pswp-height="800" target="_blank"></a>
     <img  src="{{urls.small}}" width="265px">
-    <li>User Name:</li>
-    <li><span>{{user.name}}</span></li>
-    <li>likes:<span>{{likes}}</span></li>
-</ul>
-
+    <h2>{{user.name}}</h2>
+    <h3>likes:{{likes}}</h4>
+</li>
 {{/each}}
+
+
+{{!-- {{#each this}}
+<li class='list-img'>
+    <img  src="{{urls.small}}" width="265px">
+    <h1>{{user.name}}</h1>
+    <h2>likes:{{likes}}</h2>
+</li>
+{{/each}} --}}
