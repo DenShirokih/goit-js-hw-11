@@ -54,7 +54,7 @@ const io = new IntersectionObserver(onEntry, options);
 
 const lightbox = new PhotoSwipeLightbox({
   gallery: '#my-gallery',
-  children: 'li',
+  children: 'div',
   secondaryZoomLevel: '1.5',
   pswpModule: () => import('photoswipe'),
 });

@@ -1,10 +1,14 @@
 {{#each this}}
-<li class="list-img">
-    <a href="{{urls.regular}}" data-pswp-width="1200" data-pswp-height="800" target="_blank"></a>
-    <img  src="{{urls.small}}" width="265px">
-    <h2>{{user.name}}</h2>
-    <h3>likes:{{likes}}</h4>
-</li>
+<div class="col">
+<div class="card" style="width: 13rem;">
+    <a href="{{urls.regular}}" data-pswp-width="1200" data-pswp-height="1200" target="_blank"></a>
+    <img  src="{{urls.small}}"  height="200px">
+    <div class="card-body">
+    <h5 class="card-title">{{user.name}}</h5>
+    <pclass="card-text">likes:{{likes}}</p>
+    </div>
+</div>
+</div>
 {{/each}}
 
 

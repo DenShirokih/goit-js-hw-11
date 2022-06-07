@@ -10,7 +10,7 @@ export default {
   page: 1,
   fetchImg() {
     this.isLoading = true;
-    const url = `?query=${this.query}&orientation=landscape&per_page=8&page=${this.page}`;
+    const url = `?query=${this.query}&orientation=squarish&per_page=20&page=${this.page}`;
     return axios
       .get(url)
       .then(res => {
