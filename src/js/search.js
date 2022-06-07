@@ -2,8 +2,7 @@ import refs from './refs';
 import imgServise from './img-search-servise';
 import createCardImg from './update-img-markup';
 import { fetchNoResults, fetchMoreResults } from './notifications';
-import PhotoSwipeLightbox from 'photoswipe/lightbox';
-import 'photoswipe/style.css';
+import lightbox from './modal-window';
 
 const searchImages = event => {
   event.preventDefault();
@@ -51,12 +50,5 @@ const options = {
   rootMargin: '400px',
 };
 const io = new IntersectionObserver(onEntry, options);
-
-const lightbox = new PhotoSwipeLightbox({
-  gallery: '#my-gallery',
-  children: '.card',
-  secondaryZoomLevel: '1.5',
-  pswpModule: () => import('photoswipe'),
-});
 
 lightbox.init();
